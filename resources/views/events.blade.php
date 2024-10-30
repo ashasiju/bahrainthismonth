@@ -490,66 +490,805 @@ $nextMonthYearArray = explode(",",$nextMonthYear);
                         </form>
                     </div>
 
-                    <div class="site-filters clearfix center m-b40 listing-filters">
-                        <ul class="filters" data-toggle="buttons">
-                            <li data-filter="" class="btn active">
-                                <input type="radio">
-                                <a href="#" class="site-button-link"><span><i class=""></i>All</span></a> 
-                            </li>
-                            <?php
-							$icons=array('la-thumb-tack','la-star-o','la-heart-o');
-							$i=0;
-							?>
-							@foreach($event_category as $event_category)
-                            <li data-filter="category_{{$event_category->id}}" class="btn list-tabevent">
-                                <input type="radio">
-                                <a href="#" class="site-button-link"><span><i class="la {{$icons[$i]}}"></i> {{$event_category->category_name}}</span></a> 
-                            </li>
-                            <?php $i++; ?>
-                            @endforeach
-                            <!-- <li data-filter="near-by-you" class="btn">
-                                <input type="radio">
-                                <a href="#" class="site-button-link"><span><i class="la la-video-camera m-r5"></i> Videos</span></a> 
-                            </li>  -->                  
-                        </ul>                   
+                   <!-- Horizonal Tab Widgets Added by Anandhu Start-->
+          <div class="eventtabs-container">
+            <ul class="eventtabs">
+                <li class="eventtab-item active" data-tab="all">All</li>
+                <li class="eventtab-item" data-tab="buy-tickets" class="site-button-link"><span><i class="la la-ticket"></i>Buy Tickets</span></li>
+                <li class="eventtab-item" data-tab="business"><span><i class="la la-thumb-tack"></i>Business</span></li>
+                <li class="eventtab-item" data-tab="night-life"><span><i class="la la-star-o"></i>Night Life</span></li>
+                <li class="eventtab-item" data-tab="leisure"><span><i class="la la-heart-o"></i> Leisure</span></li>
+            </ul>
+          </div>
+
+          <div class="eventtab-content active" id="all">
+              <!-- Cards content for "All" -->
+              <div class="eventcard inscadicon">
+                  <div class="image-wrapper">
+                    <img src="images/listing/list2/event1.jpg" alt="Event 1" class="img-zoom">
+                    <div class="event-overlay">
+                      <span class="heart-icon"><i class="fa fa-heart"></i></span>
+                      <span class="event-category">Dining</span>
                     </div>
-
-
-                
-                        <div class="clearfix">
-                        <ul id="masonry" class="dlab-gallery-listing gallery-grid-4 gallery row sp10">
-                        @foreach($events as $event)
-                        <li class="category_{{$event->category_name}} card-container col-lg-3 col-md-6 col-sm-12 event-mobileview1">
-                        <div class="listing-bx featured-star-right m-b30 style-2">
-                                    <div class="listing-media">
-                                        <a href="{{url('events/'.$event->subcategory_name.'/'.$event->url)}}"><img src="{{asset($event->fimage1)}}" class="eventsec-img img-zoom eventmob-image" alt=""></a>
-                                        <div class="featured-type featured-top cross_tag">Buy Tickets</div>
-                                        <ul class="featured-star category_tab">
-                                            <a href="categories.html" class="category_txt">{{$event->subcategory_name}}</a>
-                                        </ul>
-                                    </div>
-                                    <div class="listing-info info1">
-                                        <h3 class="title"><a href="{{url('events/'.$event->subcategory_name.'/'.$event->url)}}">{{substr($event->title,0,18)}}...</a></h3>
-                                        <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> {{date('D, d M Y',strtotime($event->start_date))}}</span> </h6>
-                                        <ul class="place-info ">
-                                            <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">{{$event->location}}</a></li>
-                                            <li class="open arrow_btn lap-view-arrow"><a href="{{url('events/'.$event->subcategory_name.'/'.$event->url)}}" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
-                                        </ul>
-                                        <ul class="place-info mob-view-arrow">
-                                            <li class="open arrow_btn "><a href="{{url('events/'.$event->subcategory_name.'/'.$event->url)}}" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        @endforeach    
-                            </ul>
-                            
-                    
+                    <div class="featured-type featured-top cross_tag">
+                        Buy Tickets
+                    </div>
+                  </div>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard inscadicon">
+                  <div class="image-wrapper">
+                    <a href="event-single-page.html"><img src="images/listing/list2/event2.jpg" alt="Event 2" class="img-zoom"></a>
+                      <div class="event-overlay">
+                          <span class="heart-icon"><i class="fa fa-heart"></i></span>
+                          <span class="event-category">Dining</span>
+                      </div>
+                      <div class="featured-type featured-top cross_tag">
+                            Buy Tickets
+                      </div>
+                  </div>
+                  <div class="listing-info">
+                  <div class="tconaln">
+                    <h3 class="title">
+                      <a href="">Folklore Festival</a>
+                    </h3>
+                    <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                  </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard inscadicon">
+                <div class="image-wrapper">
+                    <a href="event-single-page.html">
+                        <img src="images/listing/list2/event3.jpg" alt="Event 2" class="img-zoom">
+                    </a>
+                    <div class="event-overlay">
+                        <span class="heart-icon"><i class="fa fa-heart"></i></span>
+                        <span class="event-category">Dining</span>
+                    </div>
                 </div>
+                <div class="listing-info">
+                  <div class="tconaln">
+                    <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                    </h3>
+                    <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                  </div>
+                    <ul class="place-info">
+                        <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                        <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+              </div>
+              <div class="eventcard">
+                  <div class="image-wrapper">
+                    <a href="event-single-page.html"><img src="images/listing/list2/event4.jpg" alt="Event 2" class="img-zoom"></a>
+                    <div class="event-overlay">
+                        <span class="heart-icon"><i class="fa fa-heart"></i></span>
+                        <span class="event-category">Dining</span>
+                    </div>
+                  </div>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <div class="image-wrapper">
+                  <a href="event-single-page.html"><img src="images/listing/list2/event5.jpg" alt="Event 2" class="img-zoom"></a>
+                    <div class="event-overlay">
+                        <span class="heart-icon"><i class="fa fa-heart"></i></span>
+                        <span class="event-category">Dining</span>
+                    </div>
+                </div>
+                  <div class="listing-info">
+                  <div class="tconaln">
+                    <h3 class="title">
+                      <a href="">Folklore Festival</a>
+                    </h3>
+                    <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                  </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <div class="image-wrapper">
+                  <a href="event-single-page.html"><img src="images/listing/list2/event6.jpg" alt="Event 2" class="img-zoom"></a>
+                    <div class="event-overlay">
+                        <span class="heart-icon"><i class="fa fa-heart"></i></span>
+                        <span class="event-category">Dining</span>
+                    </div>
+                </div>
+                  <div class="listing-info">
+                  <div class="tconaln">
+                    <h3 class="title">
+                      <a href="">Folklore Festival</a>
+                    </h3>
+                    <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                  </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                  <div class="image-wrapper">
+                    <a href="event-single-page.html"><img src="images/listing/list2/event7.jpg" alt="Event 2" class="img-zoom"></a>
+                    <div class="event-overlay">
+                        <span class="heart-icon" onclick="toggleHeart(this)"><i class="fa fa-heart"></i></span>
+                        <span class="event-category">Dining</span>
+                    </div>
+                  </div>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <div class="image-wrapper">
+                  <a href="event-single-page.html"><img src="images/listing/list2/event8.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="event-overlay">
+                        <span class="heart-icon"><i class="fa fa-heart"></i></span>
+                        <span class="event-category">Dining</span>
+                  </div>
+                </div>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+          </div>
 
-                <div class="mb-5">
-          <button id="loadMore" class="inloadmore">View More</button>
-        </div>
+          <div class="eventtab-content" id="buy-tickets">
+              <!-- Cards content for "Buy Tickets" -->
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event5.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event6.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event7.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event8.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                 <a href="event-single-page.html"> <img src="images/listing/list2/event1.jpg" alt="Event 1" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event2.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event3.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event4.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+          </div>
+
+          <div class="eventtab-content" id="business">
+              <!-- Cards content for "Business" -->
+              <div class="eventcard">
+                 <a href="event-single-page.html"> <img src="images/listing/list2/event1.jpg" alt="Event 1" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event2.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event3.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event4.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event5.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event6.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event7.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event8.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+          </div>
+
+          <div class="eventtab-content" id="night-life">
+              <!-- Cards content for "Night Life" -->
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event5.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event6.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event7.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event8.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                 <a href="event-single-page.html"> <img src="images/listing/list2/event1.jpg" alt="Event 1" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event2.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                   <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event3.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event4.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+          </div>
+
+          <div class="eventtab-content" id="leisure">
+              <!-- Cards content for "Leisure" -->
+              <div class="eventcard">
+                 <a href="event-single-page.html"> <img src="images/listing/list2/event1.jpg" alt="Event 1" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+               <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event2.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event3.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                  <div class="tconaln">
+                      <h3 class="title">
+                        <a href="">Folklore Festival</a>
+                      </h3>
+                      <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    </div>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <!--<div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event4.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <h3 class="title">
+                      <a href="">Folklore Festival</a>
+                    </h3>
+                    <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event5.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <h3 class="title">
+                      <a href="">Folklore Festival</a>
+                    </h3>
+                    <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event6.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <h3 class="title">
+                      <a href="">Folklore Festival</a>
+                    </h3>
+                    <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event7.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <h3 class="title">
+                      <a href="">Folklore Festival</a>
+                    </h3>
+                    <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="eventcard">
+                <a href="event-single-page.html"><img src="images/listing/list2/event8.jpg" alt="Event 2" class="img-zoom"></a>
+                  <div class="listing-info">
+                    <h3 class="title">
+                      <a href="">Folklore Festival</a>
+                    </h3>
+                    <h6 class="post-date"> <i class="icon-calendar calendericon"></i> <span class="categorydate"> Sun, 12 Feb 2023</span> </h6>
+                    <ul class="place-info ">
+                      <li class="place-location"><i class="fa fa-map-marker"></i><a href="venue.html" class="all-venue">Arad Heritage Village</a></li>
+                      <li class="open arrow_btn lap-view-arrow"><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                    <ul class="place-info mob-view-arrow">
+                        <li class="open arrow_btn "><a href="event-single-page.html" class="arrow_txt"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+              </div> -->
+          </div>
+          <div class="mb-5 mt-5 text-center">
+            <button id="loadMore" class="inloadmoreev">View More</button>
+          </div>
 
 
 <!--<script>
@@ -785,6 +1524,130 @@ $k=0;
     }
   </script>
   <!-- EVENTS SCROLLING SEC -->
+<!-- Form Select Option -->
+
+<script>
+document.querySelectorAll('.custom-select').forEach(select => {
+    select.addEventListener('click', function (e) {
+        // Close all other dropdowns
+        document.querySelectorAll('.custom-select').forEach(otherSelect => {
+            if (otherSelect !== select) {
+                otherSelect.classList.remove('open');
+            }
+        });
+        
+        // Toggle the clicked dropdown
+        this.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.custom-option').forEach(option => {
+        option.addEventListener('click', function () {
+            let selectTrigger = this.closest('.custom-select').querySelector('.custom-select-trigger');
+            selectTrigger.textContent = this.textContent;
+            this.closest('.custom-select').classList.remove('open');
+        });
+    });
+});
+
+document.addEventListener('click', function (e) {
+    // Close dropdown if clicked outside
+    if (!e.target.closest('.custom-select')) {
+        document.querySelectorAll('.custom-select').forEach(select => {
+            select.classList.remove('open');
+        });
+    }
+});
+
+
+</script>
+
+<!-- Form Select Option -->
+
+<script>
+  // Horizonal Tab Custom Added by Anandhu
+
+const tabItems = document.querySelectorAll('.eventtab-item');
+const tabContents = document.querySelectorAll('.eventtab-content');
+const loadMoreButton = document.getElementById('loadMore');
+
+tabItems.forEach(item => {
+    item.addEventListener('click', () => {
+        // Remove active class from all tabs
+        tabItems.forEach(tab => tab.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        // Add active class to clicked tab and corresponding content
+        item.classList.add('active');
+        const tabId = item.getAttribute('data-tab');
+        const activeTabContent = document.getElementById(tabId);
+        activeTabContent.classList.add('active');
+
+        // Reset load more functionality for the newly active tab
+        resetLoadMore(activeTabContent);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize with the default active tab
+    resetLoadMore(document.querySelector('.eventtab-content.active'));
+
+    // Event listener for the load more button
+    loadMoreButton.addEventListener('click', function () {
+        const activeTabContent = document.querySelector('.eventtab-content.active');
+        toggleLoadMore(activeTabContent);
+    });
+});
+
+// Function to reset and hide extra event cards
+function resetLoadMore(activeTabContent) {
+    const eventCards = activeTabContent.querySelectorAll('.eventcard');
+    let currentVisible = 4; // Initial number of cards to show
+    const totalCards = eventCards.length;
+
+    // Show only the first 4 cards initially
+    eventCards.forEach((card, index) => {
+        card.style.display = index < currentVisible ? 'inline-block' : 'none';
+    });
+
+    // Show or hide the load more button based on card count
+    loadMoreButton.style.display = totalCards > currentVisible ? 'inline-block' : 'none';
+    loadMoreButton.textContent = 'View More';
+}
+
+// Function to handle view more/less actions
+function toggleLoadMore(activeTabContent) {
+    const eventCards = activeTabContent.querySelectorAll('.eventcard');
+    let currentVisible = Array.from(eventCards).filter(card => card.style.display !== 'none').length;
+
+    if (loadMoreButton.textContent === 'View More') {
+        // Show more cards
+        currentVisible += 4;
+        eventCards.forEach((card, index) => {
+            if (index < currentVisible) card.style.display = 'inline-block';
+        });
+
+        if (currentVisible >= eventCards.length) {
+            loadMoreButton.textContent = 'View Less';
+        }
+    } else {
+        resetLoadMore(activeTabContent); // Reset to the initial state
+    }
+}
+
+</script>
+
+
+<script>
+ // Select all heart icons
+const heartIcons = document.querySelectorAll('.heart-icon');
+
+// Loop through each icon and add a click event listener
+heartIcons.forEach(icon => {
+    icon.addEventListener('click', function () {
+        this.classList.toggle('active'); // Toggles the 'active' class
+    });
+});
+</script>
 
 
   <style>
@@ -980,41 +1843,7 @@ margin-top:107px;
 }
 </style>
 <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function () {
-    const items = document.querySelectorAll("#masonry li"); // Target the <li> elements
-    const loadMoreButton = document.getElementById("loadMore");
-    let itemsToShow = 4;  // Initially show 4 items
-    let increment = 4;    // Show 4 more items on each click
 
-    // Initially hide all items except for the first few
-    function showItems() {
-        items.forEach((item, index) => {
-            if (index < itemsToShow) {
-                item.style.display = "block"; // Show the item
-            } else {
-                item.style.display = "none"; // Hide the item
-            }
-        });
-    }
-
-    // Load more items when "View More" is clicked
-    loadMoreButton.addEventListener("click", function () {
-        if (itemsToShow < items.length) {
-            itemsToShow += increment; // Increase the number of items to show
-            if (itemsToShow >= items.length) {
-                loadMoreButton.textContent = "View Less"; // Change button text to "View Less"
-            }
-        } else {
-            // View Less functionality
-            itemsToShow = 4; // Reset to show the first 4 items
-            loadMoreButton.textContent = "View More"; // Change button text back to "View More"
-        }
-        showItems(); // Call function to show/hide items based on the updated count
-    });
-
-    // Initialize by showing the first few items
-    showItems();
-});
 function geteventCalendar(month, year) {
     $("#body-overlay").show();
     $.ajax({
@@ -1062,35 +1891,9 @@ function fetch_event_calendar_data(date) {
     });
 }
 
-/*function fetch_event_calendar_data(date) {
-    
-    $.ajax({
-        url: '/fetch-events',  // The route to your Laravel controller
-        type: 'GET',
-        data: { date: date,  _token: $('meta[name="csrf-token"]').attr('content') // Laravel requires CSRF token },   // Send the selected date
-        success: function (response) {
-            // Clear the container
-            $('#calendarcontainer #container').html('');
-            
-            // Append the fetched events to the container
-            response.events.forEach(function(event) {
-                let eventHTML = `
-                    <div class="event-tab-list1">
-                        <a href="event-single-page.html" target="_blank">
-                            <h5>${event.title} @ ${event.start_time}</h5>
-                        </a>
-                    </div>
-                `;
-                $('#calendarcontainer #container').append(eventHTML);
-            });
-        },
-        error: function (xhr, status, error) {
-            console.error('Error fetching events:', error);
-        }
-    });
-}*/
+
 $(document).on("click", '.prev', function(event) { 
-    alert("hfhdfghg");
+    
 	var month =  $(this).data("prev-month");
 	var year =  $(this).data("prev-year");
 	geteventCalendar(month,year);
